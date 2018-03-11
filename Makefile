@@ -27,7 +27,7 @@ PredictWrapper.h: PredictWrapper.class
 	javah PredictWrapper
 
 $(LIBNAME): wrapper.c PredictWrapper.h model/model.c
-	gcc -I"$(JAVA_HOME)/include" -I"$(JAVA_HOME)/include/$(INCNAME)" -I"$(PWD)/model" -shared -o $(LIBNAME) wrapper.c model/model.c
+	gcc -fPIC -I"$(JAVA_HOME)/include" -I"$(JAVA_HOME)/include/$(INCNAME)" -I"$(PWD)/model" -shared -o $(LIBNAME) wrapper.c model/model.c
 
 clean:
 	rm -rfv org $(LIBNAME) PredictWrapper.h *.class
